@@ -1,0 +1,35 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+    box-shadow: 0 -2px 15px 0 rgba(0, 0, 0, 0.20);
+    padding: .5em 2em;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 1.3em;
+    color: black;
+    transition: all .2s;
+}
+
+.logo span {
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+
+.navbar_list {
+    display: flex;
+    list-style: none;
+}
+
+.navbar_list li a {
+    text-decoration: none;
+    padding: .5em .6em;
+}
+
+.active {
+    color: blue;
+}
