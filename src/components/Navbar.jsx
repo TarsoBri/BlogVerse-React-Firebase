@@ -36,14 +36,14 @@ const Navbar = () => {
                 Entrar
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/register"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
                 Cadastrar-se
               </NavLink>
-            </li>
+            </li> */}
           </>
         )}
 

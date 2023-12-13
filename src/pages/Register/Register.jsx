@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 import { useAuthentication } from "../../hooks/useAuthentication";
 
+import { Link } from "react-router-dom";
+
 const Register = () => {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
@@ -30,13 +32,6 @@ const Register = () => {
     }
 
     const res = await createUser(user);
-
-    console.log(res);
-
-    setDisplayName("");
-    setEmail("");
-    setPassword("");
-    setConfirmedPassword("");
   };
 
   useEffect(() => {
@@ -94,6 +89,13 @@ const Register = () => {
             onChange={(e) => setConfirmedPassword(e.target.value)}
           />
         </label>
+
+        <p>
+          Já possui cadastro?{" "}
+          <Link to="/login" className={styles.link}>
+            Entrar aqui!
+          </Link>
+        </p>
 
         {!loading && (
           <input type="submit" value={"Cadastrar-se"} className="btn" />
