@@ -1,18 +1,57 @@
 import styles from "./CreatePost.module.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useAuthValue } from "../../contexts/AuthContext";
+import { useInsertDocument } from "../../hooks/useInsertDocument";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
-  const { title, setTitle } = useState("");
-  const { image, setImage } = useState("");
-  const { body, setBody } = useState("");
-  const { tags, setTags } = useState([]);
-  const { formError, setFormError } = useState("");
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [body, setBody] = useState("");
+  const [tags, setTags] = useState([]);
+  const [formError, setFormError] = useState("");
+
+  const { user } = useAuthValue();
+
+  const { insertDocument, response } = useInsertDocument("posts");
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setFormError("");
+
+    if (!title || !image || !body || !tags) {
+      setFormError("Por favor, preencha todos os campos!");
+      return;
+    }
+
+    try {
+      new URL(image);
+    } catch (error) {
+      setFormError("A imagem precisa ser uma URL.");
+      return;
+    }
+
+    const tagsArray = tags
+      .split(",")
+      .map((tag) => "#" + tag.trim().toLowerCase());
+
+    insertDocument({
+      title,
+      image,
+      body,
+      tagsArray,
+      uid: user.uid,
+      createdBy: user.displayName,
+    });
   };
+
+  useEffect(() => {
+    navigate(response.go);
+  }, [response.go]);
+
   return (
     <div className={styles.create_post}>
       <h2>Criar Post</h2>
@@ -25,8 +64,8 @@ const CreatePost = () => {
             name="title"
             required
             placeholder="Insira um título..."
-            onChange={(e) => setTitle(e.target.value)}
             value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </label>
         <label>
@@ -48,7 +87,7 @@ const CreatePost = () => {
             placeholder="Insira um conteúdo..."
             onChange={(e) => setBody(e.target.value)}
             value={body}
-            rows={5}
+            rows={4}
           ></textarea>
         </label>
         <label>
@@ -63,13 +102,15 @@ const CreatePost = () => {
           />
         </label>
 
-        {/* {!loading && (
-          <input type="submit" value={"Cadastrar-se"} className="btn" />
+        {!response.loading && (
+          <input type="submit" value={"Criar Post"} className="btn" />
         )}
-        {loading && (
+        {response.loading && (
           <input type="submit" value={"Aguarde..."} className="btn" disabled />
         )}
-        {error && <span className="error">{error}</span>} */}
+        {(response.error || formError) && (
+          <p className="error">{response.error || formError}</p>
+        )}
       </form>
     </div>
   );

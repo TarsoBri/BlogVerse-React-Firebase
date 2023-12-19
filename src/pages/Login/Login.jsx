@@ -20,9 +20,7 @@ const Login = () => {
       password,
     };
 
-    const res = await login(user);
-
-    console.log(res);
+    await login(user);
   };
 
   useEffect(() => {

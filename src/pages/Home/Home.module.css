@@ -1,0 +1,11 @@
+.search {
+    max-width: 100%;
+    width: 60%;
+    margin-bottom: 2em;
+}
+
+.search input {
+    width: 50%;
+    margin-right: 1em;
+}
+
