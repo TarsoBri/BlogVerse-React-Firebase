@@ -10,11 +10,11 @@ const initialState = {
 const insertReducer = (state, action) => {
   switch (action.type) {
     case "LOADING":
-      return { loading: true, error: null, go: null };
+      return { loading: true, error: null };
     case "INSERTED_DOC":
       return { loading: false, error: null, go: "/" };
     case "ERROR":
-      return { loading: false, error: action.payload, go: null };
+      return { loading: false, error: action.payload };
     default:
       return state;
   }
@@ -22,7 +22,7 @@ const insertReducer = (state, action) => {
 
 export const useInsertDocument = (docCollection) => {
   const [response, dispatch] = useReducer(insertReducer, initialState);
-  console.log(response);
+  
   const [cancelled, setCancelled] = useState(false);
   const checkIfIsCancelled = () => {
     if (cancelled) {
@@ -51,7 +51,6 @@ export const useInsertDocument = (docCollection) => {
 
       checkCancelBeforeDispatch({
         type: "INSERTED_DOC",
-        payload: insertedDocument,
       });
     } catch (error) {
       checkCancelBeforeDispatch({

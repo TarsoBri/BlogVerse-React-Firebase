@@ -2,14 +2,16 @@
 import styles from "./Home.module.css";
 
 // hooks
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 
 // components
 
 const Home = () => {
   const [query, setQuery] = useState("");
-  const [posts] = useState([]);
+
+  const { documents: posts, loading, error } = useFetchDocuments("posts");
 
   const handleSubmit = () => {};
 
@@ -26,7 +28,11 @@ const Home = () => {
       </form>
 
       <div>
-        <h1>Posts...</h1>
+        {loading && <p>Carregando...</p>}
+        {posts && posts.map((post) => (
+          <h3>{post.title}</h3>
+        ))}
+
         {posts && posts.length === 0 && (
           <div className={styles.nopost}>
             <p>Não foram encontrados posts</p>
