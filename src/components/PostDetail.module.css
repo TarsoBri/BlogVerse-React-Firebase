@@ -1,0 +1,17 @@
+.post{
+    margin: 100px 0; 
+}
+
+img {
+    max-width: 500px;
+    width: 70%;
+    height: 100%;
+}
+
+.tagsArray {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    gap: 10px;
+    list-style: none;
+}
