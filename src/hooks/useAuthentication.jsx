@@ -14,8 +14,7 @@ export const useAuthentication = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
 
-  // cleanup
-  // deal with memory leak
+  // memory leak
   const [cancelled, setCancelled] = useState(false);
 
   const checkIfIsCancelled = () => {

@@ -22,7 +22,7 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
   useEffect(() => {
     const loadData = async () => {
-      if (cancelled) return;
+      checkIfIsCancelled();
 
       setLoading(true);
 

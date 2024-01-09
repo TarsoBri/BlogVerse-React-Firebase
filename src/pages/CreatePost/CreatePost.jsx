@@ -96,10 +96,11 @@ const CreatePost = () => {
             type="text"
             name="tags"
             required
-            placeholder="Insira as tags separadas por vírgula."
+            placeholder="Insira tags.."
             onChange={(e) => setTags(e.target.value)}
             value={tags}
           />
+          <p className={styles.obs}>Obs: Insira as tags separadas por vírgula.</p>
         </label>
 
         {!response.loading && (
