@@ -12,7 +12,7 @@ import PostDetail from "../../components/PostDetail";
 const Home = () => {
   const [query, setQuery] = useState("");
 
-  const { documents: posts, loading, error } = useFetchDocuments("posts", query);
+  const { documents: posts, loading, error } = useFetchDocuments("posts");
 
   const navigate = useNavigate()
 

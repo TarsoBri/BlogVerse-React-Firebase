@@ -34,9 +34,7 @@ const CreatePost = () => {
       return;
     }
 
-    const tagsArray = tags
-      .split(",")
-      .map((tag) => "#" + tag.trim().toLowerCase());
+    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
 
     insertDocument({
       title,
@@ -100,7 +98,9 @@ const CreatePost = () => {
             onChange={(e) => setTags(e.target.value)}
             value={tags}
           />
-          <p className={styles.obs}>Obs: Insira as tags separadas por vírgula.</p>
+          <p className={styles.obs}>
+            Obs: Insira as tags separadas por vírgula.
+          </p>
         </label>
 
         {!response.loading && (

@@ -79,12 +79,16 @@ textarea {
 
 .btn.btn-dark {
     background-color: black;
-    border-radius: 0;
+    padding: .8em;
+}
+
+.btn.btn-dark:hover {
+    background-color: rgb(95, 95, 95);
+
 }
 
 .btn.btn-outline {
     background-color: transparent;
-    border-radius: 0;
     color: black;
     border: 1px solid black;
     padding: 7px 30px;
