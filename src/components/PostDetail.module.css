@@ -1,5 +1,5 @@
 .post {
-    margin: 6em auto;
+    margin: 4em auto;
     width: 90%;
     max-width: 600px;
     text-align: start;
@@ -27,4 +27,11 @@ img {
     padding: 0;
     gap: 10px;
     list-style: none;
+}
+.tagsArray span {
+    font-weight: bolder;
+}
+
+.post a {
+    margin-right: .5em;
 }

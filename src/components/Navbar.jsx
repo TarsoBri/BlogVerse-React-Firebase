@@ -1,14 +1,21 @@
-// CSS
 import styles from "./Navbar.module.css";
+
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { useAuthentication } from "../hooks/useAuthentication";
-
 import { useAuthValue } from "../contexts/AuthContext";
+
+import { useAuthentication } from "../hooks/useAuthentication";
 
 const Navbar = () => {
   const { user } = useAuthValue();
   const { logout } = useAuthentication();
+
+  const [menu, setMenu] = useState();
+
+  const updateMenu = () {
+
+  }
 
   return (
     <nav className={styles.navbar}>
@@ -16,7 +23,13 @@ const Navbar = () => {
         Blog<span>Verse</span>
       </NavLink>
 
-      <ul className={styles.navbar_list}>
+      <div className={styles.menu} onClick={updateMenu}>
+        <div className={styles.menu_icon}></div>
+        <div className={styles.menu_icon}></div>
+        <div className={styles.menu_icon}></div>
+      </div>
+
+      {/* <ul className={styles.navbar_list}>
         <li>
           <NavLink
             to="/"
@@ -62,7 +75,7 @@ const Navbar = () => {
                 to="/dashboard"
                 className={({ isActive }) => (isActive ? styles.active : "")}
               >
-                Dashboard
+                Painel
               </NavLink>
             </li>
           </>
@@ -82,7 +95,7 @@ const Navbar = () => {
             <button onClick={logout}>Sair</button>
           </li>
         )}
-      </ul>
+      </ul> */}
     </nav>
   );
 };

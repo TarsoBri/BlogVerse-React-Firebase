@@ -26,7 +26,7 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
 
       setLoading(true);
 
-      const collectionRef = await collection(db, docCollection);
+      const collectionRef = collection(db, docCollection);
 
       try {
         let q;
@@ -37,11 +37,13 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
             where("tagsArray", "array-contains", search),
             orderBy("createDate", "desc")
           );
+        } else if (uid) {
+          q = query(collectionRef, where("uid", "==", uid));
         } else {
           q = query(collectionRef, orderBy("createDate", "desc"));
         }
 
-        await onSnapshot(q, (querySnapshot) => {
+        onSnapshot(q, (querySnapshot) => {
           setDocuments(
             querySnapshot.docs.map((doc) => ({
               id: doc.id,

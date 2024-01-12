@@ -1,0 +1,19 @@
+.edit_post textarea {
+    resize: vertical
+}
+
+.obs {
+    margin: 5px 0;
+    text-align: left;
+    font-size: 14px;
+    color: #8d8d8d;
+}
+
+.text_img {
+    font-weight: bolder;
+    color: #8d8d8d;
+}
+
+.img {
+    margin-bottom: 1em;
+}

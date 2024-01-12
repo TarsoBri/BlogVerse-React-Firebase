@@ -25,19 +25,17 @@ export const useInsertDocument = (docCollection) => {
 
   const [cancelled, setCancelled] = useState(false);
   const checkIfIsCancelled = () => {
-    if (cancelled) {
-      return;
-    }
+    if (cancelled) return;
   };
 
-  const checkCancelBeforeDispatch = (action) => {
+  const setDispatch = (action) => {
     dispatch(action);
   };
 
   const insertDocument = async (document) => {
     checkIfIsCancelled();
 
-    checkCancelBeforeDispatch({
+    setDispatch({
       type: "LOADING",
     });
 
@@ -46,11 +44,11 @@ export const useInsertDocument = (docCollection) => {
 
       await addDoc(collection(db, docCollection), newDocument);
 
-      checkCancelBeforeDispatch({
+      setDispatch({
         type: "INSERTED_DOC",
       });
     } catch (error) {
-      checkCancelBeforeDispatch({
+      setDispatch({
         type: "ERROR",
         payload: error.message,
       });

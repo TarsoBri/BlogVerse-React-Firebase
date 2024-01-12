@@ -4,13 +4,13 @@
     align-items: center;
     background-color: aliceblue;
     box-shadow: 0 -2px 15px 0 rgba(0, 0, 0, 0.20);
-    padding: .5em 2em;
+    padding: 1em 2em;
 }
 
 .logo {
     text-decoration: none;
     font-size: 1.3em;
-    color: black;
+    color: rgb(0, 0, 0);
     transition: all .2s;
 }
 
@@ -32,4 +32,19 @@
 
 .active {
     color: blue;
+}
+
+
+/* --- Menu --- */
+
+.menu {
+    gap:4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu_icon {
+    background-color: rgb(0, 0, 0);
+    width: 20px;
+    height: 3px;
 }
