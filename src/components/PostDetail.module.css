@@ -1,8 +1,15 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4em 0;
+}
+
+
 .post {
-    margin: 4em auto;
-    width: 90%;
-    max-width: 600px;
     text-align: start;
+    max-width: 90%;    
 }
 
 .post_createdby {
@@ -14,10 +21,12 @@
 
 img {
     width: 100%;
+    max-width: 600px;
     border-radius: 5px;
 }
 
 .post h2 {
+    padding: 0;
     margin: 0;
 }
 
@@ -27,6 +36,7 @@ img {
     padding: 0;
     gap: 10px;
     list-style: none;
+    flex-wrap: wrap;
 }
 .tagsArray span {
     font-weight: bolder;
@@ -34,4 +44,28 @@ img {
 
 .post a {
     margin-right: .5em;
+}
+
+@media (min-width: 500px) {
+    .post {
+        max-width: 80%;
+    }
+
+    img {
+        max-width: 100%;
+        height: 400px;
+    }
+}
+
+@media (min-width: 900px) {
+ 
+    .post {
+        max-width: 70%;
+    }
+
+    img {
+        max-width: 100%;
+        height: 500px;
+    }
+
 }

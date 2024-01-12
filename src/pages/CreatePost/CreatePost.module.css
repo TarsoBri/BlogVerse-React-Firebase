@@ -1,4 +1,15 @@
+.create_post form {
+    max-width: 70%;
+}
+
+.create_post form label input {
+    background-color: transparent;
+    color: white;
+}
+
 .create_post textarea {
+    background-color: transparent;
+    color: white;
     resize: none;
 }
 
@@ -7,4 +18,10 @@
     text-align: left;
     font-size: 14px;
     color: #8d8d8d;
+}
+
+@media (min-width: 800px) {
+    .create_post form {
+        max-width: 30%;
+    }
 }

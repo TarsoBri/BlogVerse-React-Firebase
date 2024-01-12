@@ -1,5 +1,16 @@
+.edit_post form {
+    max-width: 70%;
+}
+
+.edit_post form label input {
+    background-color: transparent;
+    color: white;
+}
+
 .edit_post textarea {
-    resize: vertical
+    background-color: transparent;
+    color: white;
+    resize: none;
 }
 
 .obs {
@@ -16,4 +27,23 @@
 
 .img {
     margin-bottom: 1em;
+    max-width: 200px;
+    height: 200px;
+}
+@media (min-width: 800px) {
+    .edit_post form {
+        max-width: 50%;
+    }
+    
+    .img {
+        margin-bottom: 1em;
+        max-width: 400px;
+        height: 300px;
+    }
+}
+@media (min-width: 1200px) {
+    .edit_post form {
+        max-width: 30%;
+    }
+
 }
