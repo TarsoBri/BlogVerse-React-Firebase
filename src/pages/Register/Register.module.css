@@ -1,3 +1,25 @@
 .link {
     color: rgb(38, 38, 211);
 }
+
+.register form {
+    max-width: 70%;
+}
+
+.register form label input {
+    background-color: transparent;
+    color: white;
+}
+
+.register textarea {
+    background-color: transparent;
+    color: white;
+    resize: none;
+}
+
+
+@media (min-width: 800px) {
+    .register form {
+        max-width: 30%;
+    }
+}

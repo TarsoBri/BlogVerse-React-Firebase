@@ -1,3 +1,18 @@
 .link {
     color: rgb(38, 38, 211);
 }
+
+.login form {
+    max-width: 70%;
+}
+
+.login form label input {
+    background-color: transparent;
+    color: white;
+}
+
+@media (min-width: 800px) {
+    .login form {
+        max-width: 30%;
+    }
+}

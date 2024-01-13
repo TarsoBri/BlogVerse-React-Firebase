@@ -41,7 +41,7 @@ const Register = () => {
   }, [authError]);
 
   return (
-    <div>
+    <div className={styles.register}>
       <h1>Cadastra-se para ingressar</h1>
       <p>Crie seu usuário e compartilhe seus momentos!</p>
       <form onSubmit={handleSubmit}>
