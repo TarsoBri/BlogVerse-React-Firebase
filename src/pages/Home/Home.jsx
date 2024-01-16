@@ -19,7 +19,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query) {
-      return navigate(`/search?q=${query}`);
+      return navigate(`/search?q=${query.toLowerCase()}`);
     }
   };
 
@@ -34,12 +34,12 @@ const Home = () => {
         />
         <button className="btn">Pesquisar</button>
       </form>
+      <p className={styles.obs}>Obs: pesquise sem #</p>
 
       <div>
         {loading && <p>Carregando...</p>}
-      
-        {posts &&
-          posts.map((post) => <PostDetail key={post.id} post={post} />)}
+
+        {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
 
         {posts && posts.length === 0 && (
           <div className={styles.nopost}>

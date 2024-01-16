@@ -38,7 +38,7 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
             orderBy("createDate", "desc")
           );
         } else if (uid) {
-          q = query(collectionRef, where("uid", "==", uid));
+          q = query(collectionRef, where("uid", "==", uid), orderBy("createDate", "desc"));
         } else {
           q = query(collectionRef, orderBy("createDate", "desc"));
         }

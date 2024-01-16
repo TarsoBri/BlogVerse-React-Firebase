@@ -10,6 +10,9 @@
     background-color: transparent;
 }
 
-@media (min-width: 800px) {
-    
+.obs {
+    font-size: .9em;
+    color: #a5a5a5;
 }
+
+@media (min-width: 800px) {}
