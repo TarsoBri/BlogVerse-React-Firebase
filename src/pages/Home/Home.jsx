@@ -9,6 +9,9 @@ import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 // components
 import PostDetail from "../../components/PostDetail";
 
+// loading
+import Loader from "../../components/Loader";
+
 const Home = () => {
   const [query, setQuery] = useState("");
 
@@ -37,7 +40,9 @@ const Home = () => {
       <p className={styles.obs}>Obs: pesquise sem #</p>
 
       <div>
-        {loading && <p>Carregando...</p>}
+        {loading && <Loader />}
+
+        {error && <h3>Houve algum erro...</h3>}
 
         {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
 

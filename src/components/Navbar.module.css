@@ -3,7 +3,8 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgb(38, 20, 57);
-    padding: 2em 2em;
+    height: 5vh;
+    padding-inline: 2em;
 }
 
 .navbar_list {

@@ -25,6 +25,9 @@ import Search from "./pages/Search/Search";
 import PostFocus from "./pages/PostFocus/PostFocus";
 import EditPost from "./pages/EditPost/EditPost";
 
+// loading
+import Loader from "./components/Loader";
+
 function App() {
   const [user, setUser] = useState(undefined);
   const { auth } = useAuthentication();
@@ -37,14 +40,11 @@ function App() {
     });
   }, [auth]);
 
-  if (loadingUser) {
-    return <p>Carregando...</p>;
-  }
-
   return (
     <div>
       <AuthContextProvider value={{ user }}>
         <BrowserRouter>
+          {loadingUser && <Loader />}
           <Navbar />
           <div className="container">
             <Routes>
